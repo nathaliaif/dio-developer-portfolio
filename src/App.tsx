@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { ChevronUp } from "lucide-react";
+import { ChevronUp, Moon, Sun, ArrowUpLeft } from "lucide-react";
 
 function App() {
   const [changeBackground, setChangeBackground] = useState(false);
@@ -50,10 +50,31 @@ function App() {
 
   return (
     <>
-      <nav
-        id="nav"
-        className={changeBackground ? "navbar active" : "navbar"}
-      ></nav>
+      <nav className={changeBackground ? "navbar active" : "navbar"}>
+        <ul className="menu">
+          <li>
+            <a href="#header">home</a>
+          </li>
+          <li>
+            <a href="#about">sobre</a>
+          </li>
+          <li>
+            <a href="#projects">projetos</a>
+          </li>
+          <li>
+            <a href="#contact">contato</a>
+          </li>
+          <li>
+            <button onClick={toggleTheme} className="theme-toggle">
+              {theme === "light" ? <Moon /> : <Sun />}
+            </button>
+          </li>
+        </ul>
+        <div className="nav__logo-nome">
+          <span className="nav__logo-nathalia">Nathalia</span>
+          <p className="nav__logo-irokawa serif">Irokawa</p>
+        </div>
+      </nav>
       <header id="header">
         <h1 className="logo-nome">
           <span className="logo-nathalia">Nathalia</span>
@@ -69,35 +90,37 @@ function App() {
       </header>
 
       <section id="about">
-        <h2 className="section__title">
-          Sobre <p className="serif">mim</p>
-        </h2>
-        <div className="about-section__text-container">
-          <p className="section__subtitle">
-            Profissional em transição para front-end, com base em informática e
-            experiência em design.
-          </p>
-          <p className="text-right">
-            <div></div>
-            De técnica em informática a designer curiosa, redescobri minha
-            paixão por tecnologia e hoje estou focada em criar interfaces
-            bonitas e funcionais com front-end.
-          </p>
-          <div className="main-text">
-            Minha jornada começou com técnico em informática, mas como sempre
-            gostei de explorar meu lado criativo, acabei indo para o design.
-            <p>
-              Trabalhei com times criativos e aprendi muito sobre estética,
-              usabilidade e experiência do usuário, mas a curiosidade pela
-              tecnologia nunca foi embora. Aos poucos, redescobri minha paixão
-              por desenvolvimento e hoje estou em transição de carreira para o
-              front-end.
+        <div className="about__first-section">
+          <h2 className="section__title">
+            Sobre <p className="serif">mim</p>
+          </h2>
+          <div className="about-section__text-container">
+            <p className="section__subtitle">
+              Profissional em transição para front-end, com base em informática
+              e experiência em design.
             </p>
-            <p>
-              Tenho me dedicado a cursos, bootcamps e uma pós-graduação em
-              Engenharia Front-end, unindo a lógica do código com o olhar
-              estético que trago do design.
+            <p className="text-right">
+              <div></div>
+              De técnica em informática a designer curiosa, redescobri minha
+              paixão por tecnologia e hoje estou focada em criar interfaces
+              bonitas e funcionais com front-end.
             </p>
+            <div className="main-text">
+              Minha jornada começou com técnico em informática, mas como sempre
+              gostei de explorar meu lado criativo, acabei indo para o design.
+              <p>
+                Trabalhei com times criativos e aprendi muito sobre estética,
+                usabilidade e experiência do usuário, mas a curiosidade pela
+                tecnologia nunca foi embora. Aos poucos, redescobri minha paixão
+                por desenvolvimento e hoje estou em transição de carreira para o
+                front-end.
+              </p>
+              <p>
+                Tenho me dedicado a cursos, bootcamps e uma pós-graduação em
+                Engenharia Front-end, unindo a lógica do código com o olhar
+                estético que trago do design.
+              </p>
+            </div>
           </div>
         </div>
 
@@ -210,7 +233,9 @@ function App() {
                   <span>Next.js, Amazon S3</span>
                 </div>
               </div>
-              <a href="">Github</a>
+              <div className="project__links">
+                <a href="https://github.com/ViniBLK24/tech-challenge">Github</a>
+              </div>
             </div>
             <img
               className="projects-list__image"
@@ -230,9 +255,11 @@ function App() {
                   <span>React, HTML, CSS, JavaScript</span>
                 </div>
               </div>
-              <a href="https://github.com/nathaliaif/rest-countries-api-react">
-                Github
-              </a>
+              <div className="project__links">
+                <a href="https://github.com/nathaliaif/rest-countries-api-react">
+                  Github
+                </a>
+              </div>
             </div>
             <img
               className="projects-list__image"
@@ -253,9 +280,11 @@ function App() {
                   <span>React, HTML, CSS, JavaScript</span>
                 </div>
               </div>
-              <a href="https://github.com/nathaliaif/rock-paper-scissors-react">
-                Github
-              </a>
+              <div className="project__links">
+                <a href="https://github.com/nathaliaif/rock-paper-scissors-react">
+                  Github
+                </a>
+              </div>
             </div>
             <img
               className="projects-list__image"
@@ -269,7 +298,7 @@ function App() {
         <h2 className="section__title">
           entre em <p className="serif">contato</p>
         </h2>
-        <div>
+        <div className="footer__content">
           <div>
             Sinta-se à vontade para entrar em contato!
             <p className="footer__email">nathalia.iro.fernandes@gmail.com</p>
